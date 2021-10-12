@@ -25,7 +25,7 @@ class _profileState extends State<profile> {
   TextEditingController _controllerCity2 = new TextEditingController();
   TextEditingController _controllerPass = new TextEditingController();
 
-List add=[];
+  List add=[];
   getLoggedInState() async {
     await HelperFunctions.getUserNameSharedPreference().then((value){
       setState(() {
@@ -36,10 +36,10 @@ List add=[];
   getAddressInState() async {
     await HelperFunctions.getUserAddressSharedPreference().then((value){
       setState(() {
-         address = value;
+        address = value;
         add= address.split("/");
-         address=add[0];
-         address2=add[1];
+        address=add[0];
+        address2=add[1];
       });
     });
   }
@@ -59,7 +59,7 @@ List add=[];
     });
   }
   NetworkRequest networkRequest=new NetworkRequest();
- bool Modification;
+  bool Modification;
   @override
   void initState() {
     _obscureText=true;
@@ -82,7 +82,7 @@ List add=[];
     print(pass);
     return Scaffold(
         resizeToAvoidBottomInset: true,
-    //    resizeToAvoidBottomPadding: false,
+        // resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           toolbarHeight: 80,
           elevation: 2,
@@ -107,14 +107,6 @@ List add=[];
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    InkWell(
-
-                        onTap: (){
-                              Navigator.push(context, new MaterialPageRoute(builder: (context)=>new MyOrders()));
-
-                        },
-                        child: Text("طلباتى",style:TextStyle(color: Color(0xfff99b1d),fontWeight: FontWeight.bold),)),
-                    Spacer(),
                     Column(
                       children: [
                         new Text(
@@ -148,7 +140,7 @@ List add=[];
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: ()=>setState(()=>Modification=!Modification),
+                        onTap: ()=>setState(()=>Modification=!Modification),
                         child: Image.asset("Assets/icon-edit.png")),
                     new Text(
                       "البيانات الشخصية",
@@ -170,84 +162,39 @@ List add=[];
                       background(Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                        // Directionality(
-                        // textDirection: TextDirection.rtl,
-                        // child:Container(
-                        //     // padding: EdgeInsets.only(top: 15),
-                        //     width: MediaQuery.of(context).size.width* 0.6,
-                        //     child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
-                        //       cursorColor: Color(0xfff99b1d),
-                        //      // onChanged: (val)=>userName=val,
-                        //       autofocus: false,
-                        //       controller: _controller,
-                        //       maxLength: 9,
-                        //       //initialValue:userName ,
-                        //       keyboardType:TextInputType.text,
-                        //      // onChanged:(vall)=>setState(()=>phoneNumber=vall),
-                        //       decoration: InputDecoration(
-                        //         //  prefixIcon:  Image.asset("Assets/Mobile.png"),
-                        //        //   suffixIcon:  Image.asset("Assets/Mobile.png"),
-                        //           border: InputBorder.none,
-                        //
-                        //           hintText:userName!=null?userName:  "الإسم ",
-                        //           icon: InkWell(
-                        //               child: const Padding(
-                        //                 padding: const EdgeInsets.only(top: 15.0),
-                        //                 // child:const Icon(Icons.mobile_screen_share_outlined) ,
-                        //               )),
-                        //           hintStyle: TextStyle(color: Colors.grey[400]),
-                        //           labelStyle: null
-                        //       ),
-                        //     ),
-                        //   )),
+                          // Directionality(
+                          // textDirection: TextDirection.rtl,
+                          // child:Container(
+                          //     // padding: EdgeInsets.only(top: 15),
+                          //     width: MediaQuery.of(context).size.width* 0.6,
+                          //     child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
+                          //       cursorColor: Color(0xfff99b1d),
+                          //      // onChanged: (val)=>userName=val,
+                          //       autofocus: false,
+                          //       controller: _controller,
+                          //       maxLength: 9,
+                          //       //initialValue:userName ,
+                          //       keyboardType:TextInputType.text,
+                          //      // onChanged:(vall)=>setState(()=>phoneNumber=vall),
+                          //       decoration: InputDecoration(
+                          //         //  prefixIcon:  Image.asset("Assets/Mobile.png"),
+                          //        //   suffixIcon:  Image.asset("Assets/Mobile.png"),
+                          //           border: InputBorder.none,
+                          //
+                          //           hintText:userName!=null?userName:  "الإسم ",
+                          //           icon: InkWell(
+                          //               child: const Padding(
+                          //                 padding: const EdgeInsets.only(top: 15.0),
+                          //                 // child:const Icon(Icons.mobile_screen_share_outlined) ,
+                          //               )),
+                          //           hintStyle: TextStyle(color: Colors.grey[400]),
+                          //           labelStyle: null
+                          //       ),
+                          //     ),
+                          //   )),
 
-                              Text(
-                                "  $userName",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                  color:Color(0xff000000),
-                                ),
-                              ),
-                              Text(
-                                " | ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                  color:Color(0xff000000),
-                                ),
-                              ),
-                              Text(
-                                "الإسم ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                  color:Color(0xff888a9c),
-                                ),
-                              ),
-
-                              // new Text(
-                              //   userName!=null?userName:  "الإسم |  $userName",
-                              //   textAlign: TextAlign.center,
-                              //   style: TextStyle(
-                              //     fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                              //     fontSize: 16,
-                              //     color:Color(0xff000000),
-                              //   ),
-                              // ),
-
-                          SizedBox(width: 25,),
-                          backgroundOrang(Image.asset("Assets/icon-account.png",color: Colors.white,))
-                        ],
-                      )),
-                      background(Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                           Text(
-                            "  $address",
+                          Text(
+                            "  $userName",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: "Tajawal",fontWeight: FontWeight.w500,
@@ -255,7 +202,7 @@ List add=[];
                               color:Color(0xff000000),
                             ),
                           ),
-                           Text(
+                          Text(
                             " | ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -264,7 +211,51 @@ List add=[];
                               color:Color(0xff000000),
                             ),
                           ),
-                           Text(
+                          Text(
+                            "الإسم ",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              color:Color(0xff888a9c),
+                            ),
+                          ),
+                          // new Text(
+                          //   userName!=null?userName:  "الإسم |  $userName",
+                          //   textAlign: TextAlign.center,
+                          //   style: TextStyle(
+                          //     fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                          //     fontSize: 16,
+                          //     color:Color(0xff000000),
+                          //   ),
+                          // ),
+
+                          SizedBox(width: 25,),
+                          backgroundOrang(Image.asset("Assets/icon-account.png",color: Colors.white,))
+                        ],
+                      )),
+                      background(Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "  $address",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              color:Color(0xff000000),
+                            ),
+                          ),
+                          Text(
+                            " | ",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              color:Color(0xff000000),
+                            ),
+                          ),
+                          Text(
                             "المدينة ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -273,34 +264,34 @@ List add=[];
                               color:Color(0xff888a9c),
                             ),
                           ),
-                        // Directionality(
-                        // textDirection: TextDirection.rtl,
-                        // child: Container(
-                        //     // padding: EdgeInsets.only(top: 15),
-                        //     width: MediaQuery.of(context).size.width* 0.6,
-                        //     child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
-                        //       cursorColor: Color(0xfff99b1d),
-                        //       controller: _controllerCity,
-                        //       maxLength: 9,
-                        //       keyboardType:TextInputType.text,
-                        //        onChanged:(vall)=>setState(()=>address=vall),
-                        //       decoration: InputDecoration(
-                        //         //  prefixIcon:  Image.asset("Assets/Mobile.png"),
-                        //          // suffixIcon:  Image.asset("Assets/Mobile.png"),
-                        //
-                        //           border: InputBorder.none,
-                        //
-                        //           hintText: "المدينة",
-                        //           icon: InkWell(
-                        //               child: const Padding(
-                        //                 padding: const EdgeInsets.only(top: 15.0),
-                        //                 // child:const Icon(Icons.mobile_screen_share_outlined) ,
-                        //               )),
-                        //           hintStyle: TextStyle(color: Colors.grey[400]),
-                        //           labelStyle: null
-                        //       ),
-                        //     ),
-                        //   )),
+                          // Directionality(
+                          // textDirection: TextDirection.rtl,
+                          // child: Container(
+                          //     // padding: EdgeInsets.only(top: 15),
+                          //     width: MediaQuery.of(context).size.width* 0.6,
+                          //     child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
+                          //       cursorColor: Color(0xfff99b1d),
+                          //       controller: _controllerCity,
+                          //       maxLength: 9,
+                          //       keyboardType:TextInputType.text,
+                          //        onChanged:(vall)=>setState(()=>address=vall),
+                          //       decoration: InputDecoration(
+                          //         //  prefixIcon:  Image.asset("Assets/Mobile.png"),
+                          //          // suffixIcon:  Image.asset("Assets/Mobile.png"),
+                          //
+                          //           border: InputBorder.none,
+                          //
+                          //           hintText: "المدينة",
+                          //           icon: InkWell(
+                          //               child: const Padding(
+                          //                 padding: const EdgeInsets.only(top: 15.0),
+                          //                 // child:const Icon(Icons.mobile_screen_share_outlined) ,
+                          //               )),
+                          //           hintStyle: TextStyle(color: Colors.grey[400]),
+                          //           labelStyle: null
+                          //       ),
+                          //     ),
+                          //   )),
                           SizedBox(width: 25,),
                           backgroundOrang(Image.asset("Assets/location.png",color: Colors.white,))
                         ],
@@ -370,36 +361,36 @@ List add=[];
                       background(Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                        Directionality(
-                        textDirection: TextDirection.rtl,
-                        child:Container(
-                            // padding: EdgeInsets.only(top: 15),
-                            width: MediaQuery.of(context).size.width* 0.6,
-                            child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
-                              cursorColor: Color(0xfff99b1d),
-                              maxLength: 9,
-                              autofocus: false,
-                              obscureText:_obscureText,
-                              controller: _controllerPass,
-                              keyboardType:TextInputType.number,
-                              onChanged:(vall)=>setState(()=>pass=vall),
-                              decoration: InputDecoration(
-                                  counterText: "",
-                                contentPadding: EdgeInsets.only(top: 0,bottom: 8),
-                                //  prefixIcon:  Image.asset("Assets/Mobile.png"),
-                                 // suffixIcon:  Image.asset("Assets/Mobile.png"),
-                                  border: InputBorder.none,
-                                  hintText: "كلمة المرور",
-                                  icon: InkWell(
-                                      child: const Padding(
-                                        padding: const EdgeInsets.only(top: 15.0),
-                                        // child:const Icon(Icons.mobile_screen_share_outlined) ,
-                                      )),
-                                  hintStyle: TextStyle(color: Colors.grey[400]),
-                                  labelStyle: null
-                              ),
-                            ),
-                          )),
+                          Directionality(
+                              textDirection: TextDirection.rtl,
+                              child:Container(
+                                // padding: EdgeInsets.only(top: 15),
+                                width: MediaQuery.of(context).size.width* 0.6,
+                                child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
+                                  cursorColor: Color(0xfff99b1d),
+                                  //   maxLength: 9,
+                                  // maxLengthEnforced:false,
+                                  autofocus: false,
+                                  obscureText:_obscureText,
+                                  controller: _controllerPass,
+                                  keyboardType:TextInputType.number,
+                                  onChanged:(vall)=>setState(()=>pass=vall),
+                                  decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.only(top: 0,bottom: 8),
+                                      //  prefixIcon:  Image.asset("Assets/Mobile.png"),
+                                      // suffixIcon:  Image.asset("Assets/Mobile.png"),
+                                      border: InputBorder.none,
+                                      hintText: "كلمة المرور",
+                                      icon: InkWell(
+                                          child: const Padding(
+                                            padding: const EdgeInsets.only(top: 15.0),
+                                            // child:const Icon(Icons.mobile_screen_share_outlined) ,
+                                          )),
+                                      hintStyle: TextStyle(color: Colors.grey[400]),
+                                      labelStyle: null
+                                  ),
+                                ),
+                              )),
                           // new Text(
                           //   "كلمة المرور ",
                           //   textAlign: TextAlign.center,
@@ -426,26 +417,26 @@ List add=[];
                 Modification?  InkWell(
                     onTap: () async =>{
                       if(userName!=null&& pass!=null&& address!=null ){
-                       await networkRequest.edituser(userName,pass,userMobile,address),
-                      setState(()=>Modification=!Modification),
-              Fluttertoast.showToast(
-                  msg: "تم تعديل بياناتك",
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.BOTTOM,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
-                  textColor: Colors.white,
-                  fontSize: 16.0
-              )}else{
-                    Fluttertoast.showToast(
-                    msg: "ادخل بيانات",
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.BOTTOM,
-                    timeInSecForIosWeb: 1,
-                    backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
-                    textColor: Colors.white,
-                    fontSize: 16.0
-                )
+                        await networkRequest.edituser(userName,pass,userMobile,address),
+                        setState(()=>Modification=!Modification),
+                        Fluttertoast.showToast(
+                            msg: "تم تعديل بياناتك",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        )}else{
+                        Fluttertoast.showToast(
+                            msg: "ادخل بيانات",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
+                            textColor: Colors.white,
+                            fontSize: 16.0
+                        )
                       }
                     },
                     child: Container(
@@ -473,11 +464,11 @@ List add=[];
                       ),
                     )):   Align(
                   alignment: Alignment.centerLeft,
-                      child: Container(
-                  width: MediaQuery.of(context).size.width*0.5,
-                        alignment: Alignment.centerLeft,
-                        child: InkWell(
-                  onTap: (){
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*0.5,
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                      onTap: (){
                         HelperFunctions.saveUserImageSharedPreference(null);
                         HelperFunctions.saveUserIdSharedPreference(null);
                         HelperFunctions.saveUserLoggedInSharedPreference(null);
@@ -490,24 +481,24 @@ List add=[];
                               return MyApp();
                             }),(route)=> false
                         );
-                  },child:  Row(
-                        children: [
-                          SignOut(),
-                          SizedBox(width: 18,),
+                      },child:  Row(
+                      children: [
+                        SignOut(),
+                        SizedBox(width: 18,),
 
-                            new Text(
-                            "تسجيل خروج",
-                            style: TextStyle(
-                              fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              color:Color(0xff000000),
-                            ),
+                        new Text(
+                          "تسجيل خروج",
+                          style: TextStyle(
+                            fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            color:Color(0xff000000),
                           ),
+                        ),
 
-                        ],
-                  ), ),
-                      ),
-                    ),
+                      ],
+                    ), ),
+                  ),
+                ),
 
                 SizedBox(height: 16,)
               ],
@@ -528,7 +519,7 @@ List add=[];
       ),
     );
   }
-   Widget background(Widget widget){
+  Widget background(Widget widget){
     return     Container(
       padding: EdgeInsets.symmetric(vertical: 8,horizontal: 14),
       height: 46.00,
@@ -538,7 +529,7 @@ List add=[];
       ),
       child:widget  ,
     );
-   }
+  }
   Widget backgroundOrang(Widget widget){
     return new Container(
       height: 35.00,

@@ -227,11 +227,11 @@ class _HomeState extends State<Home> {
                       backgroundColor:Color(0xfff99b1d),
                       child: Center(child: Text("$Length",style: TextStyle(color: Colors.white),),),
                     ),
-                  ),
+                  )
                 ],
               )),
 
-          label: Admin?'اضافة وجبة':'طلباتى',
+          label: Admin?'اضافة وجبة':'سلة واجباتى',
         ),
         // BottomNavigationBarItem(
         //   icon:Image.asset("Assets/icon-recipes.png",color: _selectedIndex==3?Color(0xfff99b1d):Color(0xFF748A9D),),

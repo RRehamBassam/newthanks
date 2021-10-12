@@ -24,4 +24,6 @@ class ServerAddresses{
   static const DailyOrders='matjer/dayorders';
   static const monthOrders='matjer/monthorders';
   static const deleteCart='removecartitem?';
+  static const newPass='resetpassword?';
+  static const newPassrestaurant='resetpasswordrestaurant?';
 }

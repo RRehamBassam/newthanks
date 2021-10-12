@@ -134,16 +134,48 @@ class _singleOrderTajerUserState extends State<singleOrderTajerUser> {
               Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    new Text(
-                      data['product']['p_p_meal']==null?"وجبة":data['product']['p_p_meal'],
-                      style: TextStyle(
-                        fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-                        fontSize: 17,
-                        color:Color(0xff17130c),
-                      ),
-                    ),
 
-                    SizedBox(height: 3,),
+                    Container(
+                      width: MediaQuery.of(context).size.width*0.59,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                        new Text(
+                          data['product']['p_p_meal']==null?"وجبة":data['product']['p_p_meal'],
+                          style: TextStyle(
+                            fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+                            fontSize: 17,
+                            color:Color(0xff17130c),
+                          ),
+                        ),
+
+//SizedBox(width: 35,),
+                        InkWell(
+                          onTap: ()=>  Navigator.push(context, new MaterialPageRoute(builder: (context)=>  RateOrder(true))),
+                          child: Container(
+                            //  height: 90,
+                            //   margin: EdgeInsets.only(left: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Icon(Icons.star,size:22 ,color:Color(0xfff99b1d)),
+                                SizedBox(width: 4,),
+                                Text("قيم المستفيد" ,style: TextStyle(
+                                  fontFamily: "SF Pro Display",
+                                  fontSize: 12,
+                                  color:Color(0xff434f56),
+                                ),)
+                              ],
+                            ),
+                          ),
+                        )
+                      ],),
+                    )
+
+                  //  Spacer(),
+                   // SizedBox(height: 3,),
+
                   ]),
               new Container(
                 height: 26.00,

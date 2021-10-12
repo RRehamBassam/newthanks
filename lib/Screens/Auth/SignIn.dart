@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:thanks/Screens/Auth/CreateAccount.dart';
+import 'package:thanks/Screens/Auth/ForgotYourPassword.dart';
 import 'package:thanks/Screens/Home.dart';
 import 'package:thanks/api/NetworkRequest.dart';
 import 'package:thanks/models/User.dart';
@@ -47,15 +48,15 @@ class _SignInState extends State<SignIn> {
              child: Column(
                children: [
                  Container(
-                   height: MediaQuery.of(context).size.height *0.37,
+                   height: MediaQuery.of(context).size.height *0.365,
                   child:partOne() ,
                  ),
                  Container(
-                   height: MediaQuery.of(context).size.height *0.259,
+                   height: MediaQuery.of(context).size.height *0.25,
                   child:partTwo() ,
                  ),
                  Container(
-                   height: MediaQuery.of(context).size.height *0.259,
+                   height: MediaQuery.of(context).size.height *0.26,
                    child:partThree(tokenUser) ,
                  ),
                ],
@@ -95,7 +96,7 @@ class _SignInState extends State<SignIn> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(height: 25,),
+        SizedBox(height: MediaQuery.of(context).size.height>600? 25:12,),
         Image.asset("Assets/logo.png"),
       ],
     );}
@@ -104,7 +105,7 @@ return Column(
  children: [
    new Container(
 
-       height: MediaQuery.of(context).size.height*0.08,
+       height: MediaQuery.of(context).size.height*0.082,
        width: MediaQuery.of(context).size.width*0.82,
        decoration: BoxDecoration(
           color: Color(0xfff5f6fb),borderRadius: BorderRadius.circular(8.00),
@@ -125,14 +126,14 @@ return Column(
          SizedBox(width: 20,),
          Container(
           // padding: EdgeInsets.only(top: 15),
-           width: MediaQuery.of(context).size.width* 0.6,
+           width: MediaQuery.of(context).size.width* 0.55,
            child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
            cursorColor: Color(0xfff99b1d),
-             maxLength: 9,
+           //  maxLength: 9,
              keyboardType:TextInputType.number,
              onChanged:(vall)=>setState(()=>phoneNumber=vall),
              decoration: InputDecoration(
-                 counterText: "",
+                // counterText: "",
              //  prefixIcon:  Image.asset("Assets/Mobile.png"),
                  suffixIcon:  Image.asset("Assets/Mobile.png"),
                  border: InputBorder.none,
@@ -200,15 +201,20 @@ return Column(
    SizedBox(height: 16,),
    Container(
      width: MediaQuery.of(context).size.width* 0.8,
-     child: Align(
-       alignment:Alignment.centerRight,
-       child: new Text(
-         "نسيت كلمة المرور؟",
-         textAlign: TextAlign.center,
-         style: TextStyle(
-           fontFamily: "Tajawal",fontWeight: FontWeight.w500,
-           fontSize: 16,
-           color:Color(0xffa6bcd0),
+     child: InkWell(
+       onTap: (){
+         Navigator.push(context, new MaterialPageRoute(builder: (context)=>  ForgotYourPassword()));
+       },
+       child: Align(
+         alignment:Alignment.centerRight,
+         child: new Text(
+           "نسيت كلمة المرور؟",
+           textAlign: TextAlign.center,
+           style: TextStyle(
+             fontFamily: "Tajawal",fontWeight: FontWeight.w500,
+             fontSize: 16,
+             color:Color(0xffa6bcd0),
+           ),
          ),
        ),
      ),

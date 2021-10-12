@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'جمعية حفظ النعمة',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
         primaryColor: Color(0xFFF99B1D),
 
         accentColor: Colors.grey[200],

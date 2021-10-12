@@ -223,7 +223,7 @@ List Count=[1,2,3,4,5,6,7,8,9,10];
                              FullName(),
                               new Container(
 
-                                  height: MediaQuery.of(context).size.height*0.07,
+                                  height:MediaQuery.of(context).size.height<600?MediaQuery.of(context).size.height*0.06:MediaQuery.of(context).size.height*0.07,
                                   width: MediaQuery.of(context).size.width*0.82,
                                   padding: EdgeInsets.only(top: 8),
                                   decoration: BoxDecoration(
@@ -267,7 +267,7 @@ List Count=[1,2,3,4,5,6,7,8,9,10];
                                  civil_registry=val;
                                });}),
                               new Container(
-                                  height: MediaQuery.of(context).size.height*0.07,
+                                  height:MediaQuery.of(context).size.height<600?MediaQuery.of(context).size.height*0.06: MediaQuery.of(context).size.height*0.07,
                                   width: MediaQuery.of(context).size.width*0.82,
                                   padding: EdgeInsets.only(top: 8,right: 6),
                                   margin:EdgeInsets.only(bottom: 4) ,
@@ -284,7 +284,7 @@ List Count=[1,2,3,4,5,6,7,8,9,10];
                                         items: Count.map((item) {
                                           return new DropdownMenuItem(
                                             child:new Container(
-                                                height: MediaQuery.of(context).size.height*0.07,
+                                                height:MediaQuery.of(context).size.height<600?MediaQuery.of(context).size.height*0.06: MediaQuery.of(context).size.height*0.07,
                                                 width: MediaQuery.of(context).size.width*0.65,
                                                 decoration: BoxDecoration(
                                                   // border: Border.all(width: 1.00, color: Colors.grey[300],),
@@ -401,14 +401,14 @@ List Count=[1,2,3,4,5,6,7,8,9,10];
             onChanged: function,
            // style: TextStyle( color: Colors.white),
             cursorColor: Color(0xfff99b1d),
-            maxLength:textInputType? 9:25,
+          //  maxLength:textInputType? 9:25,
             keyboardType:textInputType?TextInputType.number:TextInputType.text,
 
             obscureText:hinttext=="***********"? _obscureText:false,
            // textAlign: TextAlign.right,
             decoration: InputDecoration(
               filled: true,
-                counterText: "",
+          //      counterText: "",
                 //hoverColor:Colors.black45 ,
                fillColor: Colors.white,
                // to trigger disabledBorder
@@ -568,17 +568,17 @@ print (Output);
   Widget mobile(){
     return  backgroungtextfielid(
         Container(
-          height: MediaQuery.of(context).size.height*0.07,
+          height:MediaQuery.of(context).size.height<600?MediaQuery.of(context).size.height*0.06: MediaQuery.of(context).size.height*0.07,
           // padding: EdgeInsets.only(top: 15),
           width: MediaQuery.of(context).size.width* 0.835,
           child: TextFormField(
             //onChanged: (val)=>setState((){searchWord=val;}),
             cursorColor: Color(0xfff99b1d),
-            maxLength: 9,
+           // maxLength: 9,
             keyboardType:TextInputType.number,
             onChanged:(vall)=>setState(()=>Phone=vall),
             decoration: InputDecoration(
-                counterText: "",
+               // counterText: "",
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey[300]),
                     borderRadius: BorderRadius.circular(8.0,)

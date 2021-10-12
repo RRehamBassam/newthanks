@@ -5,6 +5,9 @@ import 'package:thanks/api/NetworkRequest.dart';
 import 'package:thanks/items/singleOfferGride.dart';
 import 'package:thanks/widget/buttonFill.dart';
 import 'package:thanks/widget/loading.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 class Cart extends StatefulWidget {
   @override
   _CartState createState() => _CartState();
@@ -24,7 +27,7 @@ class _CartState extends State<Cart> {
   int length;
   @override
   Widget build(BuildContext context) {
-
+    print(MediaQuery.of(context).size.width);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -252,7 +255,7 @@ class _CartState extends State<Cart> {
         padding: EdgeInsets.all(8),
         // height: MediaQuery.of(context).size.height*0.25,
         width: MediaQuery.of(context).size.width* 0.9,
-        height: 78.00,
+        height:MediaQuery.of(context).size.width>170.72727272727275? 78.00:87.0,
         // width: 325.69,
         decoration: BoxDecoration(
           color: Color(0xff16ba75),borderRadius: BorderRadius.circular(8.00),
@@ -269,7 +272,7 @@ class _CartState extends State<Cart> {
               ),
             ),
             new Text(
-              "بعد ارسال طلبك سيصلك اشعار بتأكيد تجهيز طلبك \nمن المطعم ويمكنك التوجه بعدها لاستلام طلبك",
+              ''' بعد ارسال طلبك سيصلك اشعار بتأكيد تجهيز طلبك \nمن المطعم ويمكنك التوجه بعدها لاستلام طلبك''',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "Tajawal",

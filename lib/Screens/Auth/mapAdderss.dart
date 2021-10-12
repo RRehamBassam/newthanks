@@ -216,7 +216,7 @@ class _mapsState extends State<maps> {
                     onTap: _handel,
                     initialCameraPosition: CameraPosition(
                       target: LatLng(22.774265, 46.738586),
-                      zoom: 17.0,
+                      zoom: 11.0,
                     ) ,
                   ),
                 ),

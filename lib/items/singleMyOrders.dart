@@ -70,7 +70,7 @@ class _SingleMyOrdersState extends State<SingleMyOrders> {
             ),
           ),
           Spacer(),
-          isDone? InkWell(
+          map['status_ar']=="جاري التجهيز"? InkWell(
             onTap: ()=>  Navigator.push(context, new MaterialPageRoute(builder: (context)=>  RateOrder(false))),
             child: Container(
               height: 90,
@@ -114,12 +114,12 @@ class _SingleMyOrdersState extends State<SingleMyOrders> {
                 blurRadius: 5,
                 offset: Offset(0, 2)
             )],
-          color: !isDone?Color(0xfff99b1d):Color(0xff16BA75),
+          color: map['status_ar']!="جاري التجهيز"?Color(0xfff99b1d):Color(0xff16BA75),
             borderRadius: BorderRadius.circular(2.00),
           ),
           child: Center(
             child: new Text(//data['status_ar']=="جاري التوصيل"?"تم رفض":['status_ar']=="جاري التجهيز"?"جاهز للاستلام":['status_ar'],"تم التسليم"
-              map['status_ar']=="طلب جديد"?"جديد": map['status_ar']=="جاري التوصيل"?"تم رفض":!isDone?map['status_ar']=="جاري التجهيز"?"تم الإستلام":map['status_ar']:"جاهز للاستلام",
+              map['status_ar']=="طلب جديد"?"جديد": map['status_ar']=="جاري التوصيل"?"تم رفض":!isDone?map['status_ar']=="تم التسليم"?"جارى تجهيز":"تم الإستلام": map['status_ar']=="جاري التجهيز"?"تم الإستلام":"جاهز للاستلام",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "SF Pro Display",fontWeight: FontWeight.w500,

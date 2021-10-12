@@ -135,6 +135,16 @@ class _RateOrderState extends State<RateOrder> {
             ),
             InkWell(
               onTap: ()async{
+                Navigator.pop(context);
+                Fluttertoast.showToast(
+                    msg: " تم التقييم بنجاح",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
                 if(matjer){
                   print(matjer);
                   print("11");

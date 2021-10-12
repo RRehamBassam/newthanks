@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:thanks/Screens/AdminPages/AddOrder.dart';
 import 'package:thanks/Screens/Cart.dart';
@@ -41,7 +43,7 @@ class _singleOfferState extends State<singleOffer> {
                   cart? SizedBox(width: 5,):Container(width: 0,height: 0,),
                   new Container(
                     height:230,// matjer?MediaQuery.of(context).size.height>710?230:MediaQuery.of(context).size.height* 0.32: MediaQuery.of(context).size.height>710?250:MediaQuery.of(context).size.height* 0.34,
-                    width:  MediaQuery.of(context).size.width* 0.445,
+                    width: Platform.isIOS? MediaQuery.of(context).size.width* 0.415: MediaQuery.of(context).size.width* 0.445,
                     margin: EdgeInsets.all(5),
                     padding: EdgeInsets.all(5) ,
                     decoration: BoxDecoration(

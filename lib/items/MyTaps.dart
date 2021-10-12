@@ -27,7 +27,7 @@ class _MyTabsState extends State<MyTabs> {
       child: ChangeNotifierProvider<AppState>(
         create: (_) => AppState(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 30.0),
           child: Consumer<AppState>(
             builder: (context, appState, _) {
               print(appState.selectedCategory);
@@ -48,7 +48,7 @@ class _MyTabsState extends State<MyTabs> {
               return SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                height: 220.0,
+                height: 230.0,
                 width: MediaQuery.of(context).size.width *0.68,
 
                 child: Column(
@@ -63,7 +63,7 @@ class _MyTabsState extends State<MyTabs> {
                         appState.updateok(1);
                       },
                       child: Container(
-                        height: MediaQuery.of(context).size.height*0.07,
+                        height: MediaQuery.of(context).size.height*0.06,
                         width: MediaQuery.of(context).size.width*0.7,
                         padding: EdgeInsets.only(top: 5),
                         decoration: BoxDecoration(

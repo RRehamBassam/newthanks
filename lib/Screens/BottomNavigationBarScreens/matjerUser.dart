@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -146,7 +147,7 @@ class _matjerState extends State<matjerUser> {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SizedBox(height: 20,),
+          SizedBox(height:Platform.isIOS?18: 20,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -185,11 +186,11 @@ class _matjerState extends State<matjerUser> {
 
             ],
           ),
-          SizedBox(height: 4,),
+          SizedBox(height:Platform.isIOS?3: 4,),
           Row(
             children: [
               tajerAccount? search():SearchPerson(),
-              SizedBox(width: 12,),
+              SizedBox(width:Platform.isIOS?8:12,),
               Directionality(
                   textDirection: TextDirection.rtl,
                   child: Container(

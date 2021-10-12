@@ -160,7 +160,7 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
             children: [
               SizedBox(height: 20,),
               Loading(),
-             // CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Color(0xfff99b1d) ),)
+              // CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Color(0xfff99b1d) ),)
             ],
           );});
   }
@@ -206,9 +206,9 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
                       ),borderRadius: BorderRadius.circular(6.00),
                     ),
                   ):ClipRRect(
-        borderRadius: BorderRadius.circular(6.00),
-    child: Image.memory(bytes,fit: BoxFit.fitWidth,height: 40.0,width: 40.0,),
-    ),
+                    borderRadius: BorderRadius.circular(6.00),
+                    child: Image.memory(bytes,fit: BoxFit.fitWidth,height: 40.0,width: 40.0,),
+                  ),
                   Text(
                     userName!=null?"$userName    ":"",
                     textAlign: TextAlign.center,
@@ -224,13 +224,13 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
           ),
           Row(
             children: [
-               search(),
+              search(),
               SizedBox(width: 12,),
               Directionality(
                   textDirection: TextDirection.rtl,
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 5,horizontal: 16),
-                    height:  MediaQuery.of(context).size.height * 0.07,
+                    height:  MediaQuery.of(context).size.height * 0.062,
                     width: MediaQuery.of(context).size.width *0.74,
                     decoration: BoxDecoration(
                       color: Color(0xfff5f6fb),borderRadius: BorderRadius.circular(8.00),
@@ -248,11 +248,11 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
                         }).toList();
                       }),
                       cursorColor: Color(0xfff99b1d),
-
+                      //  maxLength: 9,
                       // keyboardType:TextInputType.number,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(bottom: 15),
-                         // contentPadding: EdgeInsets.only(bottom: 7),
+                          // contentPadding: EdgeInsets.only(bottom: 7),
                           border: InputBorder.none,
                           hintText:       "ابحث فى الوجبات  ",
                           icon: InkWell(
@@ -275,7 +275,7 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
   }
   Widget search(){
     return new Container(
-      height:  MediaQuery.of(context).size.height * 0.065,
+      height:  MediaQuery.of(context).size.height * 0.062,
       width: MediaQuery.of(context).size.width *0.12,
       decoration: BoxDecoration(
         color: Color(0xfff99b1d),borderRadius: BorderRadius.circular(5.00),
@@ -285,7 +285,7 @@ class _matjerRestaurantState extends State<matjerRestaurant> {
   }
   Future<void> getonRefreshState() async {
     refreshKey.currentState?.show(atTop: false);
-     await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 3));
     await networkRequest.getUserResproducts().then((value){
       setState(() {
         _notesForDisplay  = value;

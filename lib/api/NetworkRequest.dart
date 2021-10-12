@@ -80,6 +80,102 @@ String token ;
     }
 
   }
+  Future<dynamic> NewPassword(String phone, String password) async {
+   // print("tokenUser :"+tokenUser);
+    Map _result;
+    bool status = false;
+    print("login params" + phone + " " + password);
+    if(phone=="966594103577"){
+      print("kkkk");
+      phone="+966594103577";
+    }
+    try {
+      final response = await http.post(
+        ServerAddresses.serverAddress + ServerAddresses.newPass,
+//c3r49PAjQXO2yPdu_Vzft-:APA91bGoA5opX6tjndKWE-XQ7EIJdLVvHoFhlMVPIw-1kv4rBs-OFNkMJxxUttUPkm7ToVjY-cxNLklQUIEjIe-8pOTFZrrzg6JIgS-U_QfbrlmvUI51WYMqzJ__r0FLq40MsRHgyYLi
+        body: {'mobile':"$phone",'password':"$password",'password2':'$password'},
+      );
+      print('login result response: ' + response.body+ 'response.statusCode  '+ "${response.statusCode}" );
+
+      if (response.statusCode == 200) {
+        try {
+          _result = jsonDecode(response.body);
+          status = _result['status'];
+          print("pppp");
+          print(_result['message']);
+          print(status);
+          if (status ==true) {
+
+            return _result['message'];
+          }else {
+            if(_result['message']=="الحساب المطلوب غير موجود")
+              return NewPasswordR( phone,  password);
+            // print("NO NO");
+            return _result['message'];
+
+
+          }
+        } catch (error) {
+          print("login error api" + error.toString());
+          return "خطأ في التسجيل";
+          throw Exception("login error api");
+        }
+      }
+    } catch (error) {
+      print('ERROR: ' + error.toString());
+      return "خطأ في التسجيل";
+      // throw CustomException(error.toString());
+      rethrow;
+    }
+
+  }
+  Future<dynamic> NewPasswordR(String phone, String password) async {
+    // print("tokenUser :"+tokenUser);
+    Map _result;
+    bool status = false;
+    print("login params" + phone + " " + password);
+    if(phone=="966594103577"){
+      print("kkkk");
+      phone="+966594103577";
+    }
+    try {
+      final response = await http.post(
+        ServerAddresses.serverAddress + ServerAddresses.newPassrestaurant,
+//c3r49PAjQXO2yPdu_Vzft-:APA91bGoA5opX6tjndKWE-XQ7EIJdLVvHoFhlMVPIw-1kv4rBs-OFNkMJxxUttUPkm7ToVjY-cxNLklQUIEjIe-8pOTFZrrzg6JIgS-U_QfbrlmvUI51WYMqzJ__r0FLq40MsRHgyYLi
+        body: {'mobile':"$phone",'password':"$password",'password2':'$password'},
+      );
+      print('login result response: ' + response.body+ 'response.statusCode  '+ "${response.statusCode}" );
+
+      if (response.statusCode == 200) {
+        try {
+          _result = jsonDecode(response.body);
+          status = _result['status'];
+          print("pppp");
+          print(_result['message']);
+          print(status);
+          if (status ==true) {
+
+            return _result['message'];
+          }else {
+            // print("NO NO");
+            return _result['message'];
+
+
+          }
+        } catch (error) {
+          print("login error api" + error.toString());
+          return "خطأ في التسجيل";
+          throw Exception("login error api");
+        }
+      }
+    } catch (error) {
+      print('ERROR: ' + error.toString());
+      return "خطأ في التسجيل";
+      // throw CustomException(error.toString());
+      rethrow;
+    }
+
+  }
   Future<dynamic> Resturantlogin(String phone, String password,String tokenUser) async {
     Map _result;
     bool status = false;
@@ -436,8 +532,8 @@ String token ;
             'Authorization': 'Bearer $token',
           },
           body:{
-            'rate':rate,
-            'notes':notes
+            'rate':2,
+            'notes':"notes"
 
           }
       );
