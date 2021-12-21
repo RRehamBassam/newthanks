@@ -365,7 +365,7 @@ class _profileState extends State<profile> {
                               textDirection: TextDirection.rtl,
                               child:Container(
                                 // padding: EdgeInsets.only(top: 15),
-                                width: MediaQuery.of(context).size.width* 0.6,
+                                width: MediaQuery.of(context).size.width* 0.53,
                                 child: TextFormField(//onChanged: (val)=>setState((){searchWord=val;}),
                                   cursorColor: Color(0xfff99b1d),
                                   //   maxLength: 9,
@@ -400,7 +400,7 @@ class _profileState extends State<profile> {
                           //     color:Color(0xff888a9c),
                           //   ),
                           // ),
-                          SizedBox(width: 25,),//color: Colors.white.withOpacity(0.6)
+                          SizedBox(width: 23,),//color: Colors.white.withOpacity(0.6)
                           backgroundOrang(InkWell(onTap: (){setState(() {_obscureText=!_obscureText;});},//Image.asset("Assets/location.png")
                               child:_obscureText? const Padding(
                                 padding: const EdgeInsets.only(top: 0.0,bottom: 7.0),

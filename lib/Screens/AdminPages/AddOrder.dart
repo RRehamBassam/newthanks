@@ -80,8 +80,38 @@ class _AddOrderState extends State<AddOrder> {
                      ),
                    ),
                    SizedBox(height: 2,),
-                   Directionality(
-                       textDirection: TextDirection.rtl,child: Grid(list,typeofmeal,"typeMeal")),
+                   Center(
+                     child: Directionality(
+
+                       textDirection: TextDirection.rtl,
+                       child: new DropdownButton(
+                         hint: Text("",style:TextStyle(color: Colors.grey[400])),
+                         underline: Container(),
+                         items: list.map((item) {
+                           return new DropdownMenuItem(
+                             child:new Container(
+                                 height: MediaQuery.of(context).size.height*0.07,
+                                 width: MediaQuery.of(context).size.width*0.65,
+                                 decoration: BoxDecoration(
+                                   // border: Border.all(width: 1.00, color: Colors.grey[300],),
+                                   borderRadius: BorderRadius.circular(8.00),
+                                 ),
+                                 child:  Directionality(
+                                     textDirection: TextDirection.rtl,child: new Text(item))),
+                             value: item.toString(),
+                           );
+                         }).toList(),
+                         onChanged: (newVal) {
+                           setState(() {
+                             typeofmeal = newVal;
+                           });
+                         },
+                         value: typeofmeal,
+                       ),
+                     ),
+                   ),
+                   // Directionality(
+                   //     textDirection: TextDirection.rtl,child: Grid(list,typeofmeal,"typeMeal")),
                  ],
                ),
              ),
@@ -126,10 +156,41 @@ class _AddOrderState extends State<AddOrder> {
                 ),
               ),
               SizedBox(height: 2,),
+                Center(
+                  child: Directionality(
 
+                    textDirection: TextDirection.rtl,
+                    child: new DropdownButton(
+                      hint: Text("المدينة",style:TextStyle(color: Colors.grey[400])),
+                      underline: Container(),
+                      items: sweet.map((item) {
+                        return new DropdownMenuItem(
+                          child:new Container(
+                              height: MediaQuery.of(context).size.height*0.07,
+                              width: MediaQuery.of(context).size.width*0.65,
+                              decoration: BoxDecoration(
+                                // border: Border.all(width: 1.00, color: Colors.grey[300],),
+                                borderRadius: BorderRadius.circular(8.00),
+                              ),
+                              child:  Directionality(
+                                  textDirection: TextDirection.rtl,child: new Text(item))),
+                          value: item.toString(),
+                        );
+                      }).toList(),
+                      onChanged: (newVal) {
+                        setState(() {
+                          chooseAdditives = newVal;
+                        });
+                      },
+                      value: chooseAdditives,
+                    ),
+                  ),
+                ),
 
-             Directionality(
-                textDirection: TextDirection.rtl, child:Grid(sweet,chooseAdditives,"addition"))])),
+             // Directionality(
+             //    textDirection: TextDirection.rtl, child:Grid(sweet,chooseAdditives,"addition"))
+
+              ])),
               SizedBox(height: 8,),
               Container(
                 margin: EdgeInsets.only(right: 5),
@@ -314,7 +375,7 @@ class _AddOrderState extends State<AddOrder> {
           "${Count}",
           textAlign: TextAlign.right,
           style: TextStyle(
-            fontFamily: "DIN Next LT W23",
+
             fontSize: 20,
             color:Color(0xff717171),
           ),

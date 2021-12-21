@@ -46,20 +46,21 @@ dependencies:
   pin_entry_text_field: ^0.1.4
   http: ^0.12.0+4
   provider: ^4.3.2+2
-  image_picker: ^0.6.7+12
+  image_picker: ^0.6.0
   fluttertoast: ^7.1.6
   grafpix: ^1.2.8
   flutter_spinkit: "^4.1.2"
   badges: ^1.1.6
   location: ^3.0.0
   geolocator: ^6.1.2
-  google_maps_flutter: ^0.5.22+2
+  google_maps_flutter: ^2.0.6
   geocoding: ^1.0.5
   geocoder: ^0.2.1
   map_controller: ^0.9.0
   firebase_messaging: ^5.1.4
   flutter_local_notifications:
   riverpod: ^0.12.4
+
 
 
 

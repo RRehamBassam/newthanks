@@ -115,7 +115,7 @@ class _HomeState extends State<Home> {
           icon:Container(
               margin:EdgeInsets.only(bottom:8,) ,
               child: Image.asset("Assets/icon-recipes.png",color: _selectedIndex==1?Color(0xfff99b1d):Color(0xFF748A9D),)),
-              label: 'طالبات يومية',
+              label: 'طلبات يومية',
         ),
         BottomNavigationBarItem(
           icon:

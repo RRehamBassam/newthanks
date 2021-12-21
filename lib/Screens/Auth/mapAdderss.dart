@@ -176,10 +176,10 @@ class _mapsState extends State<maps> {
         add1 = addresses.first.featureName;
         add2= addresses.first.addressLine;
         //latLng=tappedPoint;
-        markers.add(Marker(
-          markerId: MarkerId(tappedPoint.toString()),
-          position: tappedPoint,
-        ));
+        // markers.add(Marker(
+        //   markerId: MarkerId(tappedPoint.toString()),
+        //   position: tappedPoint,
+        // ));
       });
       final GoogleMapController controller = await _controller.future;
       controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
@@ -193,6 +193,7 @@ class _mapsState extends State<maps> {
         body:Material(
             child:Stack(
               children: <Widget>[
+
 
                // Map(),
                 Container(
@@ -219,6 +220,17 @@ class _mapsState extends State<maps> {
                       zoom: 11.0,
                     ) ,
                   ),
+                ),
+                Center(
+                  child: InkWell(
+                      onTap: () async {
+                        // final coordinates= new Coordinates(lat,lng);
+                        // addresses=await Geocoder.local.findAddressesFromCoordinates(coordinates);
+                        //  HelperFunctions.saveUserAddressChangeSharedPreference(" ${addresses.first.addressLine}");
+                        //  addresses=addresses.first.addressLine;
+
+                      },
+                      child: Icon(Icons.location_on,size: 38,color: Color(0xff80AB40),)),
                 ),
                 Positioned(
                     right: 30,
@@ -261,25 +273,27 @@ class _mapsState extends State<maps> {
 
     return   InkWell(
       onTap:(){
+        Fluttertoast.showToast(
+            msg: " يرجى الانتظار لحين تفعيل حسابك",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (_){
+              return  SignIn();
+            }),(route)=> false
+        );
+
         if(latLng==null){
           setState(() {
             latLng=latLnglocation;
           });
         }else{
-          Fluttertoast.showToast(
-              msg: " يرجى الانتظار لحين تفعيل حسابك",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.BOTTOM,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Color(0xfff99b1d).withOpacity(0.9),
-              textColor: Colors.white,
-              fontSize: 16.0
-          );
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (_){
-                return  SignIn();
-              }),(route)=> false
-          );
+
           // serverAddresses.addAddress(userId,"${latLng.longitude}","${latLng.latitude}");
           // Navigator.push(context, new MaterialPageRoute(builder: (context)=>new Payment(req,"$add1 / $add2")));
         }

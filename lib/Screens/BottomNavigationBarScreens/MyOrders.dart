@@ -56,11 +56,11 @@ class _MyOrdersState extends State<MyOrders> {
                   ),
                 ),
               ),
-              Expanded(
+              Container(
                 child: ListView.builder(
                     shrinkWrap: true,
 
-                  itemCount:snapshot.data.length,
+                    itemCount:snapshot.data.length,
                   itemBuilder: (context, i) {
                     if(snapshot.data[i]['items_data'][0]['product']==null)
                       return Container();

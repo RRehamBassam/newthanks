@@ -130,8 +130,8 @@ class _matjerState extends State<matjerUser> {
   }
   Widget BoxTop(){
     return   Container(
-      padding: EdgeInsets.all(16),
-      height: SearchPersonBox?MediaQuery.of(context).size.height * 0.445: MediaQuery.of(context).size.height * 0.255,
+      padding: EdgeInsets.all(7),
+      height: SearchPersonBox?MediaQuery.of(context).size.height * 0.445: MediaQuery.of(context).size.height * 0.265,
       width:MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: Color(0xffffffff),
@@ -195,7 +195,7 @@ class _matjerState extends State<matjerUser> {
                   textDirection: TextDirection.rtl,
                   child: Container(
                     padding: EdgeInsets.only(right: 16,left: 16),
-                    height:  MediaQuery.of(context).size.height * 0.07,
+                    height:  MediaQuery.of(context).size.height * 0.068,
                     width: MediaQuery.of(context).size.width *0.75,
                     decoration: BoxDecoration(
                       color: Color(0xfff5f6fb),borderRadius: BorderRadius.circular(8.00),
@@ -221,7 +221,7 @@ class _matjerState extends State<matjerUser> {
 
                       // keyboardType:TextInputType.number,
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(bottom: 8),
+                        //  contentPadding: EdgeInsets.only(bottom: 8),
                           border: InputBorder.none,
                           hintText:       "ابحث عن وجبات متاحة ",
                           icon: InkWell(

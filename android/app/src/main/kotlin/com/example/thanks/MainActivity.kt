@@ -1,4 +1,4 @@
-package com.thanks.thanks
+package com.thank.thank
 
 import io.flutter.embedding.android.FlutterActivity
 
